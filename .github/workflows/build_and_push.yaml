@@ -21,9 +21,9 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
           
 
-    - name: Build and Push Docker Kubectl Image
+    - name: Build and Push Docker rancher/k3s Image
       working-directory: ./
       run: |
         docker build -t rancher-k3s .
-        docker tag kubectl sysperu/rancher-k3s
+        docker tag rancher-k3s sysperu/rancher-k3s
         docker push sysperu/rancher-k3s
