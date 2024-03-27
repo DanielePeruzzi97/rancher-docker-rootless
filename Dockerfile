@@ -2,7 +2,7 @@
 FROM alpine:3.12 AS alpine
 RUN apk -u --no-cache add shadow-uidmap
 
-FROM rancher/k3s:latest
+FROM rancher/k3s:v1.27.12-k3s1
 
 COPY --from=alpine /etc/passwd /etc/group /etc/shadow /etc/subgid /etc/subuid /etc/
 COPY --from=alpine /usr/bin/newgidmap /usr/bin/newuidmap /usr/bin/
